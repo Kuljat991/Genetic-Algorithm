@@ -1,4 +1,3 @@
-from DNA import DNA
 from Population import Population
 
 # Demonstration of using a genetic algorithm to perform a search
@@ -32,27 +31,27 @@ from Population import Population
 
 if __name__ == '__main__':
     
-    target = 'Genetic'
-#    print len(target)    
+    target = 'Genetic'    
     mutation = 0.02
     popmax = 100
     
-#    nesto = DNA(len(target))
-#    nesto.calcFitness(target)
     
     population = Population ( target, mutation, popmax)
-#    for i in range (popmax):
-#        population.population[i].calcFitness(target)   
+
     for i in range (1000): 
-        population.calcFitness()
+        if population.finished == False:
+            
+            population.calcFitness()
 #    Generate mating pool        
-        population.naturalSelection()
+            population.naturalSelection()
 #       Create next generation
-        population.generate()
+            population.generate()
 #       Calculate fitness
 
 
-        population.evaluate()
+            population.evaluate()        
+        else:
+            break
 #    population.evaluate()
 #        if population.population.finished == True:
 #            break

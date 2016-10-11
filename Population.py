@@ -71,19 +71,21 @@ class Population:
     
     # Compute the current "most fit" member of the population
     def evaluate (self):
-        worldrecord = 0.
+        self.worldrecord = 0.
         index = 0
         for i in range (len(self.population)):
-            if (self.population[i].fitness > worldrecord):
+            if (self.population[i].fitness > self.worldrecord):
                 index = i
-                worldrecord = self.population[i].fitness
+                self.worldrecord = self.population[i].fitness
         
-        self.best = self.population[index].word
+        self.best = self.population[index].getPhrase()
         print self.best
+#        print self.population[i].finess
 #        print len(self.best)
         
-        if (worldrecord == self.perfectScore):
+        if (self.worldrecord == self.perfectScore):
             self.finished = True
+            print str(self.finished)
         
     def isFinished (self):
         return self.finished

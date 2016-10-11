@@ -18,14 +18,16 @@ def newCharacter ():
     return chr(c)
 
 class DNA:
-    def __init__(self,num):
+    def __init__( self, num):
 #   The genetic sequence
         self.genes = []
         self.fitness = 0.
         for  i in range (0, num):
             self.genes.append(newCharacter());  # Pick from range of chars
 #        print self.genes        
-        self.word = ''.join(self.genes)
+        
+    def getPhrase ( self):
+        return ''.join(self.genes)
 
 #   Fitness function (returns floating point % of "correct" characters)
     
